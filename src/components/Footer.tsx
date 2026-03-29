@@ -1,10 +1,18 @@
-
+import styles from "../styles/Footer.module.css"
+import LOGO2 from "../assets/LOGO2.png"
 
 function Footer() {
-  return (
-    <>
-    </>
-  )
+    return (
+        <>
+            <footer>
+                <div className={styles.container}>
+                    <img src={LOGO2} alt="logo-kasa" />
+
+                    <p>© 2020 Kasa. All rights reserved</p>
+                </div>
+            </footer>
+        </>
+    )
 }
 
 export default Footer;

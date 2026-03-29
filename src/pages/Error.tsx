@@ -3,6 +3,7 @@
 function Error() {
   return (
     <>
+    error
     </>
   )
 }

@@ -1,0 +1,46 @@
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-inline: 100px;
+    margin: 45px 0 50px;
+}
+
+.header_logo {
+    width: 210.32px;
+    height: 68px;
+}
+
+.nav {
+    display: flex;
+    gap: 57px;
+}
+
+.nav_link {
+    color: black;
+    text-decoration: none;
+    font-size: 24px;
+    line-height: 143%;
+    font-weight: 500;
+}
+
+@media (max-width: 768px) {
+    .container {
+        padding: 20px 20px 27px;
+        gap: 10px;
+    }
+
+    .nav {
+        gap: 26px;
+    }
+
+    .header_logo {
+        width: 145px;
+        height: 46.88px;
+    }
+
+    .nav_link {
+        font-size: 12px;
+    }
+
+}
