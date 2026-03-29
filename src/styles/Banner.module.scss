@@ -1,0 +1,44 @@
+.banner {
+    position: relative;
+    background-size: cover;
+    background-position: center;
+    height: 223px;
+    border-radius: 25px;
+    margin-bottom: 43px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.banner::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.6);
+    border-radius: 25px;
+}
+
+.title {
+    position: relative;
+    color: white;
+    font-size: 48px;
+    line-height: 143%;
+}
+
+@media (max-width: 768px) {
+    .banner {
+        height: 111px;
+        border-radius: 10px;
+        margin-bottom: 22px;
+    }
+
+    .banner::before {
+        border-radius: 10px;
+    }
+
+    .title {
+        font-size: 24px;
+        padding: 31px 110px 32px 16px;
+    }
+}
