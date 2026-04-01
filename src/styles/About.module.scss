@@ -1,0 +1,9 @@
+.about_container {
+    padding-inline: 100px;
+}
+
+@media (max-width: 768px) {
+    .about_container {
+        padding-inline: 19.5px;
+    }
+}

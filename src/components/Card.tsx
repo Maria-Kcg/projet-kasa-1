@@ -9,6 +9,7 @@ function Card ( ){
                     logements.map((logement) => (
                         <div key={logement.id} className={styles.card}>
                             <img src={logement.cover} alt="" />
+                            <p>{logement.title}</p>
                         </div>
                     ))
                 }
