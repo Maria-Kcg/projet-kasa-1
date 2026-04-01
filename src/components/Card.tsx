@@ -1,8 +1,18 @@
+import logements from "../logements.json"
+import styles from "../styles/Card.module.scss"
 
-
-function Card () {
+function Card ( ){
     return(
         <>
+            <div className={styles.container_card}>
+                {
+                    logements.map((logement) => (
+                        <div key={logement.id} className={styles.card}>
+                            <img src={logement.cover} alt="" />
+                        </div>
+                    ))
+                }
+            </div>
         </>
     )
 }

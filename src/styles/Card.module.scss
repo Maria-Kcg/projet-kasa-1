@@ -1,0 +1,18 @@
+.container_card {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    align-items: center;
+    justify-content: center;
+}
+
+.card {
+    height: 340px;
+    width: 340px;
+
+    img {
+        object-fit: cover;
+        height: 100%;
+        width: 100%;
+
+    }
+}
