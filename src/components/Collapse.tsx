@@ -22,6 +22,7 @@ function Collapse() {
         }
     ]
 
+    //ouverture et fermeture des collapses
     const [isOpen, setIsOpen] = useState<string | null>(null);
 
     const handleClick = (title: string) => {
