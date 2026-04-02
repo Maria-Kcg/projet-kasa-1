@@ -4,7 +4,6 @@
     flex-direction: column;
     gap: 30px;
     align-items: center;
-    justify-content: center;
     margin-bottom: 38px;
 }
 
@@ -12,6 +11,7 @@
     background-color: #F6F6F673;
     color: black;
     border-radius: 5px;
+    width: 1023px;
 }
 
 .collapse_header {
@@ -31,7 +31,7 @@
 }
 
 .collapse_description {
-    padding: 0 20px 20px 20px;
+    padding: 0 20px 20px;
 
     p {
         color: black;
@@ -47,6 +47,9 @@
         gap: 20px;
         margin-bottom: 19px;
     }
+    .collapse{
+        width: 310px;
+    }
 
     .collapse_header {
         height: 30px;
@@ -55,10 +58,13 @@
         p {
             font-size: 13px;
         }
+
+        .icons {
+            cursor: pointer;
+        }
     }
 
     .collapse_description {
-        padding: 0 20px 20px 20px;
 
         p {
             font-size: 12px;

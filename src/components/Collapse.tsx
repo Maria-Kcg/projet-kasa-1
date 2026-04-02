@@ -1,5 +1,6 @@
 import { ChevronDown, ChevronUp } from "lucide-react"
 import styles from "../styles/Collapse.module.scss"
+import { useState } from "react"
 
 function Collapse() {
     const collapses = [
@@ -21,21 +22,33 @@ function Collapse() {
         }
     ]
 
+    const [isOpen, setIsOpen] = useState<string | null>(null);
+
+    const handleClick = (title: string) => {
+        if (isOpen === title) {
+            setIsOpen(null)
+        } else {
+            setIsOpen(title)
+        }
+
+    }
+
     return (
         <>
-            <div className={styles.collapses_container}>  
+            <div className={styles.collapses_container}>
                 {collapses.map((collapse) => (
                     <div key={collapse.title} className={styles.collapse}>
                         <div className={styles.collapse_header}>
                             <p>{collapse.title}</p>
-                            <div>
-                                <ChevronUp size={32} />
-                                <ChevronDown size={32} />
+                            <div onClick={() => handleClick(collapse.title)} className={styles.icons}>
+                                {(isOpen === collapse.title) ? <ChevronDown size={32} /> :
+                                    <ChevronUp size={32} />}
                             </div>
                         </div>
-                        <div className={styles.collapse_description}> 
-                            <p>{collapse.description}</p>
-                        </div>
+                        {isOpen === collapse.title &&
+                            <div className={styles.collapse_description}>
+                                <p>{collapse.description}</p>
+                            </div>}
                     </div>
                 ))}
             </div>
