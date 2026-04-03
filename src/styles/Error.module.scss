@@ -26,3 +26,28 @@
         font-weight: 500;
     }
 }
+
+@media (max-width: 768px) {
+    .error {
+        text-align: center;
+        color: #FF6060;
+        padding-bottom: 113px;
+        padding-top: 0;
+        margin-top: 0;
+
+        h1 {
+            font-size: 96px;
+            margin-top: 50px;
+            margin-bottom: 80px;
+        }
+
+        p {
+            font-size: 18px;
+            margin: 0 57.5px 113px;
+        }
+
+        .link {
+            font-size: 14px;
+        }
+    }
+}
