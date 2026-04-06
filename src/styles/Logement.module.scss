@@ -111,7 +111,8 @@
             background-color: #F6F6F673;
             border-bottom-right-radius: 10px;
             border-bottom-left-radius: 10px;
-            height: 227px;
+            max-height: 227px;
+            transition: all 1s ease;
 
             p {
                 color: black;
@@ -124,11 +125,11 @@
     .equip {
         ul {
             list-style: none;
-            
-        li {
-            font-size: 18px;
-            line-height: 143%;
-        }
+
+            li {
+                font-size: 18px;
+                line-height: 143%;
+            }
         }
     }
 }

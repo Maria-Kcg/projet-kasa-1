@@ -19,27 +19,23 @@ function Logement() {
     const pinkStars = Array(5).fill(<Star color="#FF6060" fill="#FF6060" />);
 
     //ouverture/fermeture des collapse
-    //const [isOpen, setIsOpen] = useState(false);
     const [isDesc, setIsDesc] = useState(false);
     const [isEquip, setIsEquip] = useState(false);
-
-    //const handleClick = () => {
-    //    setIsOpen(!isOpen)
-   // };
 
     //pour ouvrir la description
     const openDesc = () => {
         setIsDesc(!isDesc)
     };
 
-     const openEquip = () => {
+    //pour ouvrir les équipements
+    const openEquip = () => {
         setIsEquip(!isEquip)
     };
 
     return (
         <>
             <div className={styles.logement}>
-                <CarouselLogement />
+                <CarouselLogement images={logement.pictures} />
 
                 <div>
                     <div className={styles.logement_header}>
