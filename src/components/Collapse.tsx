@@ -31,7 +31,6 @@ function Collapse() {
         } else {
             setIsOpen(title)
         }
-
     }
 
     return (
