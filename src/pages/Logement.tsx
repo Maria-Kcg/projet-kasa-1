@@ -2,7 +2,7 @@ import CarouselLogement from "../components/CarouselLogement"
 import logements from "../logements.json"
 import styles from "../styles/Logement.module.scss"
 import { useParams } from "react-router-dom"
-import { Star, ChevronUp, ChevronDown } from "lucide-react"
+import { Star, ChevronDown } from "lucide-react"
 import { useState } from "react"
 import Error from "./Error"
 
@@ -78,29 +78,29 @@ function Logement() {
                         <div className={styles.desc}>
                             <div className={styles.header}>
                                 <p>Description</p>
-                                <div onClick={openDesc}>
-                                    {isDesc ? <ChevronDown /> : <ChevronUp />}
+                                <div onClick={openDesc} className={styles.col_btn}>
+                                    <ChevronDown className={`${styles.btn_down} ${isDesc ? styles.rotated : ""}`} />
                                 </div>
                             </div>
-                            {isDesc &&
-                                <div className={styles.content}>
-                                    <p>{logement.description}</p>
-                                </div>}
+
+                            <div className={`${styles.content} ${isDesc ? styles.open : ""}`}>
+                                <p>{logement.description}</p>
+                            </div>
                         </div>
 
                         <div className={styles.equip}>
                             <div className={styles.header}>
                                 <p>Equipements</p>
-                                <div onClick={openEquip}>
-                                    {isEquip ? <ChevronDown /> : <ChevronUp />}
+                                <div onClick={openEquip} className={styles.col_btn}>
+                                    <ChevronDown className={`${styles.btn_down} ${isEquip ? styles.rotated : ""}`} />
                                 </div>
                             </div>
-                            {isEquip &&
-                                <ul className={styles.content}>
-                                    {logement.equipments.map((equipement, index) => (
-                                        <li key={index}>{equipement}</li>
-                                    ))}
-                                </ul>}
+
+                            <ul className={`${styles.content} ${isEquip ? styles.open : ""}`}>
+                                {logement.equipments.map((equipement, index) => (
+                                    <li key={index}>{equipement}</li>
+                                ))}
+                            </ul>
                         </div>
                     </div>
                 </div>

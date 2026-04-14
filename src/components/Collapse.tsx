@@ -1,4 +1,4 @@
-import { ChevronDown, ChevronUp } from "lucide-react"
+import { ChevronDown } from "lucide-react"
 import styles from "../styles/Collapse.module.scss"
 import { useState } from "react"
 
@@ -40,17 +40,17 @@ function Collapse() {
             <div className={styles.collapses_container}>
                 {collapses.map((collapse) => (
                     <div key={collapse.title} className={styles.collapse}>
+
                         <div className={styles.collapse_header}>
                             <p>{collapse.title}</p>
                             <div onClick={() => handleClick(collapse.title)} className={styles.icons}>
-                                {(isOpen.includes(collapse.title)) ? <ChevronDown size={32} /> :
-                                    <ChevronUp size={32} />}
+                                <ChevronDown size={32} className={`${styles.btn_down} ${isOpen.includes(collapse.title) ? styles.rotated : ""}`} />
                             </div>
                         </div>
-                        {isOpen.includes(collapse.title) &&
-                            <div className={styles.collapse_description}>
-                                <p>{collapse.description}</p>
-                            </div>}
+
+                        <div className={`${styles.collapse_description} ${isOpen.includes(collapse.title) ? styles.open : ""}`} >
+                            <p>{collapse.description}</p>
+                        </div>
                     </div>
                 ))}
             </div>

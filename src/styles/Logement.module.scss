@@ -104,16 +104,35 @@
                 font-weight: 700;
                 line-height: 143%;
             }
+
+            .col_btn {
+                cursor: pointer;
+
+                .btn_down {
+                    transition: transform 0.5s ease;
+
+                    &.rotated {
+                        transform: rotate(180deg);
+                    }
+                }
+            }
         }
 
         .content {
+            max-height: 0;
             margin: 0;
-            padding: 20px;
             background-color: #F6F6F673;
             border-bottom-right-radius: 10px;
             border-bottom-left-radius: 10px;
-            max-height: 227px;
             transition: all 1s ease;
+            overflow: hidden;
+            transition: all 0.5s ease;
+            padding-inline: 20px;
+
+            &.open {
+                max-height: 500px;
+                padding: 20px;
+            }
 
             p {
                 color: black;

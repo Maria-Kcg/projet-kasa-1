@@ -28,16 +28,36 @@
         font-size: 24px;
         font-weight: 700;
     }
+
+    .icons {
+        cursor: pointer;
+
+        .btn_down {
+            transition: transform 0.5s ease;
+
+            &.rotated {
+                transform: rotate(180deg);
+            }
+        }
+    }
 }
 
 .collapse_description {
-    padding: 0 20px 20px;
+    max-height: 0;
+    overflow: hidden;
+    transition: all 0.8s ease;
+    padding-inline: 20px;
+
+    &.open {
+        max-height: 500px;
+    }
 
     p {
         color: black;
         font-size: 18px;
         font-weight: 400;
         line-height: 143%;
+        padding: 0 20px 20px; 
     }
 }
 
@@ -47,7 +67,8 @@
         gap: 20px;
         margin-bottom: 19px;
     }
-    .collapse{
+
+    .collapse {
         width: 310px;
     }
 
