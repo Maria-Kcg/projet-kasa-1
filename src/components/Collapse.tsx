@@ -23,14 +23,16 @@ function Collapse() {
     ]
 
     //ouverture et fermeture des collapses
-    const [isOpen, setIsOpen] = useState<string | null>(null);
+    const [isOpen, setIsOpen] = useState<string[]>([]);
 
     const handleClick = (title: string) => {
-        if (isOpen === title) {
-            setIsOpen(null)
-        } else {
-            setIsOpen(title)
-        }
+        setIsOpen((prev) => {
+            if (prev.includes(title)) {
+                return prev.filter(item => item !== title)
+            } else {
+                return [...prev, title]
+            }
+        });
     }
 
     return (
@@ -41,11 +43,11 @@ function Collapse() {
                         <div className={styles.collapse_header}>
                             <p>{collapse.title}</p>
                             <div onClick={() => handleClick(collapse.title)} className={styles.icons}>
-                                {(isOpen === collapse.title) ? <ChevronDown size={32} /> :
+                                {(isOpen.includes(collapse.title)) ? <ChevronDown size={32} /> :
                                     <ChevronUp size={32} />}
                             </div>
                         </div>
-                        {isOpen === collapse.title &&
+                        {isOpen.includes(collapse.title) &&
                             <div className={styles.collapse_description}>
                                 <p>{collapse.description}</p>
                             </div>}

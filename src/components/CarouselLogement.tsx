@@ -16,6 +16,7 @@ function CarouselLogement({ images }: { images: string[] }) {
                     <button onClick={() => { setIndex(index + 1) }} disabled={index === images.length - 1} className={styles.btn_right}>
                         <ChevronRight size={96} />
                     </button>
+                    <p>{index + 1}/{images.length}</p>
                 </div>
             </div>
         </>

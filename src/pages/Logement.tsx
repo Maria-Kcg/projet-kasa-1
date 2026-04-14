@@ -4,13 +4,14 @@ import styles from "../styles/Logement.module.scss"
 import { useParams } from "react-router-dom"
 import { Star, ChevronUp, ChevronDown } from "lucide-react"
 import { useState } from "react"
+import Error from "./Error"
 
 function Logement() {
     const { id } = useParams()
     const logement = logements.find((logement) => logement.id === id)
 
-    if (logement === undefined) {
-        return <p>Aucun logement trouvé</p>
+    if (!logement) {
+        return <Error />
     }
 
     //coloration des étoiles de ratingg
