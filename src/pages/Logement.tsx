@@ -19,19 +19,21 @@ function Logement() {
     const grayStars = Array(5).fill(<Star color="#E3E3E3" fill="#E3E3E3" />);
     const pinkStars = Array(5).fill(<Star color="#FF6060" fill="#FF6060" />);
 
-    //ouverture/fermeture des collapse
-    const [isDesc, setIsDesc] = useState(false);
-    const [isEquip, setIsEquip] = useState(false);
+    //ouverture/fermeture des collapses
+    //const [isDesc, setIsDesc] = useState(false);
+    //const [isEquip, setIsEquip] = useState(false);
 
-    //pour ouvrir la description
-    const openDesc = () => {
-        setIsDesc(!isDesc)
-    };
+    const [isOpen, setIsOpen] = useState<string[]>([]);
 
-    //pour ouvrir les équipements
-    const openEquip = () => {
-        setIsEquip(!isEquip)
-    };
+    const handleClick = (section : string) => {
+        setIsOpen((prev) => {
+            if (prev.includes(section)) {
+                return prev.filter(item => item !== section)
+            } else {
+                return [...prev, section]
+            }
+        });
+    }
 
     return (
         <>
@@ -78,12 +80,12 @@ function Logement() {
                         <div className={styles.desc}>
                             <div className={styles.header}>
                                 <p>Description</p>
-                                <div onClick={openDesc} className={styles.col_btn}>
-                                    <ChevronDown className={`${styles.btn_down} ${isDesc ? styles.rotated : ""}`} />
+                                <div onClick={() => handleClick("description")} className={styles.col_btn}>
+                                    <ChevronDown className={`${styles.btn_down} ${isOpen.includes("description") ? styles.rotated : ""}`} />
                                 </div>
                             </div>
 
-                            <div className={`${styles.content} ${isDesc ? styles.open : ""}`}>
+                            <div className={`${styles.content} ${isOpen.includes("description") ? styles.open : ""}`}>
                                 <p>{logement.description}</p>
                             </div>
                         </div>
@@ -91,12 +93,12 @@ function Logement() {
                         <div className={styles.equip}>
                             <div className={styles.header}>
                                 <p>Equipements</p>
-                                <div onClick={openEquip} className={styles.col_btn}>
-                                    <ChevronDown className={`${styles.btn_down} ${isEquip ? styles.rotated : ""}`} />
+                                <div onClick={() => handleClick("equipements")} className={styles.col_btn}>
+                                    <ChevronDown className={`${styles.btn_down} ${isOpen.includes("equipements") ? styles.rotated : ""}`} />
                                 </div>
                             </div>
 
-                            <ul className={`${styles.content} ${isEquip ? styles.open : ""}`}>
+                            <ul className={`${styles.content} ${isOpen.includes("equipements") ? styles.open : ""}`}>
                                 {logement.equipments.map((equipement, index) => (
                                     <li key={index}>{equipement}</li>
                                 ))}
